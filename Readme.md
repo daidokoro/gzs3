@@ -71,7 +71,7 @@ __Note__: It's important to note that larger repos may consume a larger amount o
 
 If you have Golang installed:
 
-`go get github.com/daidokoro/qaz`
+`go get github.com/daidokoro/gzs3`
 
 
 ## TODO:
