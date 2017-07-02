@@ -27,16 +27,6 @@ key: some/key.zip
 Then simply call the repo using the CLI tool.
 
 ```
-$ gzs3 git@github.com:some/repo.git
-```
-
-__Or__ via http(s)
-
-```
-$ gzs3 https://github.com/some/repo.git
-```
-
-```
 Clone git Repo & ZIP to AWS S3...
 
 Usage:
@@ -53,6 +43,18 @@ Flags:
   -p, --profile string    configured AWS profile (default "default")
   -i, --ssh-rsa string    path to git SSH id_rsa (default "/Users/shaunremekie/.ssh/id_rsa")
   -u, --user string       git username
+```
+
+__Try__:
+
+```
+$ gzs3 git@github.com:some/repo.git
+```
+
+__Or__ via http(s)
+
+```
+$ gzs3 https://github.com/some/repo.git
 ```
 
 
