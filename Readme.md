@@ -7,7 +7,7 @@ __gzs3__(Git Zip to S3) was born of a very specific need to automate the zipping
 __gzs3__ is capable of zipping any repo and storing it in s3, not just repos containing lambda functions.
 
 
-## Required
+### Required
 
 - AWS Credentials need to be configured to allow access to the S3 Bucket being written to.
 
