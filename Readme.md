@@ -1,7 +1,5 @@
-# gzs3 - zip your Git Repo in S3
-
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](https://github.com/daidokoro/gzs3)
-[![forthebadge](http://forthebadge.com/images/badges/check-it-out.svg)](https://github.com/daidokoro/gzs3)
+# gzs3 - zip your Git Repo in S3
 
 [![codebeat badge](https://codebeat.co/badges/13cd8045-d01f-4425-8125-49e45f899a2b)](https://codebeat.co/projects/github-com-daidokoro-gzs3-master)
 
