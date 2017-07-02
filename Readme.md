@@ -1,8 +1,15 @@
 # gzs3 - zip your Git Repo in S3
 
+[![asciicast](https://asciinema.org/a/rrDghylQhrx8FN34p33tSbJTL.png)](https://asciinema.org/a/rrDghylQhrx8FN34p33tSbJTL?speed=1.5)
+
 __gzs3__(Git Zip to S3) was born of a very specific need to automate the zipping and uploading of lambda functions to S3 from a Git Repository for Cloudformation Deployments.
 
 __gzs3__ is capable of zipping any repo and storing it in s3, not just repos containing lambda functions.
+
+
+## Required
+
+- AWS Credentials need to be configured to allow access to the S3 Bucket being written to.
 
 
 ## How it Works!
@@ -66,6 +73,10 @@ If you have Golang installed:
 
 `go get github.com/daidokoro/qaz`
 
+
+## TODO:
+- Write some tests!!!
+- Support for _tar_ archive
 
 # Contributing
 
