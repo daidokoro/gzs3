@@ -1,6 +1,8 @@
  # gzs3 - zip your Git Repo in S3 [![forthebadge]
 
 [![codebeat badge](https://codebeat.co/badges/13cd8045-d01f-4425-8125-49e45f899a2b)](https://codebeat.co/projects/github-com-daidokoro-gzs3-master)
+![Go Report Card](https://goreportcard.com/badge/github.com/daidokoro/gzs3)
+
 
 [![asciicast](https://asciinema.org/a/rrDghylQhrx8FN34p33tSbJTL.png)](https://asciinema.org/a/rrDghylQhrx8FN34p33tSbJTL?speed=1.5)
 
