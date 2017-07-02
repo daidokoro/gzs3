@@ -1,6 +1,6 @@
 # gzs3 - zip your Git Repo in S3
 
-__gzs3__(__G__it __Zip__ to __s3__) was born of my very specific need to automate the zipping and uploading of lambda functions to S3 from a Git Repository for Cloudformation Deployments.
+__gzs3__(Git Zip to S3) was born of a very specific need to automate the zipping and uploading of lambda functions to S3 from a Git Repository for Cloudformation Deployments.
 
 __gzs3__ is capable of zipping any repo and storing it in s3, not just repos containing lambda functions.
 
@@ -35,6 +35,26 @@ __Or__ via http(s)
 ```
 $ gzs3 https://github.com/some/repo.git
 ```
+
+```
+Clone git Repo & ZIP to AWS S3...
+
+Usage:
+  gzs3 [flags]
+
+Examples:
+gzs3 git@github.com/some/repo.git
+
+Flags:
+      --debug             debug mode
+  -h, --help              help for gzs3
+      --no-colors         disable color output
+      --password string   git password
+  -p, --profile string    configured AWS profile (default "default")
+  -i, --ssh-rsa string    path to git SSH id_rsa (default "/Users/shaunremekie/.ssh/id_rsa")
+  -u, --user string       git username
+```
+
 
 __Note__: It's important to note that larger repos may consume a larger amount of memory to create a Zip file.
 
