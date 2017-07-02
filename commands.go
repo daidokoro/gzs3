@@ -29,14 +29,14 @@ var gzs3Cmd = &cobra.Command{
 
 		// define repo
 		gituri = args[0]
-		repo, err := NewRepo(gituri, gituser)
+		gitrepo, err := newrepo(gituri, gituser)
 		handleError(err)
 
 		// write file to s3
 		if _, err = S3write(
-			repo.conf.Bucket,
-			repo.conf.Key,
-			repo.zipData,
+			gitrepo.conf.Bucket,
+			gitrepo.conf.Key,
+			gitrepo.zipData,
 			sess,
 		); err != nil {
 			handleError(err)
@@ -44,7 +44,7 @@ var gzs3Cmd = &cobra.Command{
 
 		fmt.Printf("zip created in s3: %s\n",
 			log.ColorString(
-				fmt.Sprintf("s3://%s/%s", repo.conf.Bucket, repo.conf.Key),
+				fmt.Sprintf("s3://%s/%s", gitrepo.conf.Bucket, gitrepo.conf.Key),
 				"red",
 			),
 		)
@@ -52,6 +52,7 @@ var gzs3Cmd = &cobra.Command{
 	},
 }
 
+// define flags
 func init() {
 	gzs3Cmd.PersistentFlags().StringVarP(&profile, "profile", "p", "default", "configured AWS profile")
 	gzs3Cmd.PersistentFlags().BoolVarP(&debug, "debug", "", false, "debug mode")

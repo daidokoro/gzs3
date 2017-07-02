@@ -23,13 +23,13 @@ import (
 )
 
 // Config - defines gzs3 config file
-type Config struct {
+type config struct {
 	Bucket string `json:"bucket" yaml:"bucket"`
 	Key    string `json:"key" yaml:"key"`
 }
 
-// Repo used to manage git repo based deployments
-type Repo struct {
+// repo used to manage git repo based deployments
+type repo struct {
 	URL     string
 	fs      *memfs.Memory
 	Files   map[string]string
@@ -38,12 +38,12 @@ type Repo struct {
 	User    string
 	Secret  string
 	zipData *bytes.Buffer
-	conf    Config
+	conf    config
 }
 
-// NewRepo - returns pointer to a new repo struct
-func NewRepo(url, user string) (*Repo, error) {
-	r := &Repo{
+// Newrepo - returns pointer to a new repo struct
+func newrepo(url, user string) (*repo, error) {
+	r := &repo{
 		fs:    memfs.New(),
 		Files: make(map[string]string),
 		URL:   url,
@@ -80,7 +80,7 @@ func NewRepo(url, user string) (*Repo, error) {
 	return r, nil
 }
 
-func (r *Repo) clone() error {
+func (r *repo) clone() error {
 	// memory store for git objects
 	store := memory.NewStorage()
 
@@ -108,7 +108,7 @@ func (r *Repo) clone() error {
 	return nil
 }
 
-func (r *Repo) readFiles(root []billy.FileInfo, dirname string) error {
+func (r *repo) readFiles(root []billy.FileInfo, dirname string) error {
 	log.Debug(fmt.Sprintf("writing repo files to memory filesystem [%s]\n", dirname))
 	for _, i := range root {
 		if i.IsDir() {
@@ -132,7 +132,7 @@ func (r *Repo) readFiles(root []billy.FileInfo, dirname string) error {
 	return nil
 }
 
-func (r *Repo) getAuth(opts *git.CloneOptions) error {
+func (r *repo) getAuth(opts *git.CloneOptions) error {
 	if strings.HasPrefix(r.URL, "git@") {
 		fmt.Println("SSH Source URL detected, attempting to use SSH Keys")
 
@@ -161,14 +161,14 @@ func (r *Repo) getAuth(opts *git.CloneOptions) error {
 	return nil
 }
 
-func (r *Repo) parseConfig() error {
-	log.Debug(fmt.Sprintf("checking for %s config file in repo", config))
+func (r *repo) parseConfig() error {
+	log.Debug(fmt.Sprintf("checking for %s config file in repo", gzs3file))
 	// check config is there
-	if _, ok := r.Files[config]; !ok {
-		return fmt.Errorf("[%s] not found in repo", config)
+	if _, ok := r.Files[gzs3file]; !ok {
+		return fmt.Errorf("[%s] not found in repo", gzs3file)
 	}
 
-	c := r.Files[config]
+	c := r.Files[gzs3file]
 	if err := yaml.Unmarshal([]byte(c), &r.conf); err != nil {
 		return err
 	}
@@ -176,7 +176,7 @@ func (r *Repo) parseConfig() error {
 	return nil
 }
 
-func (r *Repo) createZip() error {
+func (r *repo) createZip() error {
 	log.Debug("creating ZIP file")
 	buf := new(bytes.Buffer)
 	zipwriter := zip.NewWriter(buf)

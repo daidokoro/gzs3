@@ -8,7 +8,7 @@ import (
 )
 
 // ColorString - Returns colored string
-func (l *Logger) ColorString(s, col string) string {
+func (l *logger) ColorString(s, col string) string {
 
 	// If Windows, disable colorS
 	if runtime.GOOS == "windows" || *l.Colors {

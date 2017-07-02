@@ -1,7 +1,7 @@
 package main
 
 // gzs3file constant
-const config = "gzs3file"
+const gzs3file = "gzs3file"
 
 var (
 	gituser string
@@ -14,7 +14,7 @@ var (
 	colors  bool
 
 	// define logger
-	log = Logger{
+	log = logger{
 		DebugMode: &debug,
 		Colors:    &colors,
 	}
