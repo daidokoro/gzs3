@@ -1,5 +1,5 @@
- # gzs3 - zip your Git Repo in S3 [![forthebadge]
-
+ # gzs3 - zip your Git Repo in S3
+ 
 [![codebeat badge](https://codebeat.co/badges/13cd8045-d01f-4425-8125-49e45f899a2b)](https://codebeat.co/projects/github-com-daidokoro-gzs3-master)
 ![Go Report Card](https://goreportcard.com/badge/github.com/daidokoro/gzs3)
 
@@ -81,6 +81,7 @@ If you have Golang installed:
 ## TODO:
 - Write some tests!!!
 - Support for _tar_ archive
+- Add Binary and Install Script
 
 # Contributing
 
