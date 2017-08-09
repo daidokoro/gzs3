@@ -111,13 +111,13 @@ func (r *repo) clone() error {
 func (r *repo) readFiles(root []billy.FileInfo, dirname string) error {
 	log.Debug(fmt.Sprintf("writing repo files to memory filesystem [%s]\n", dirname))
 	for _, i := range root {
+		path := filepath.Join(dirname, i.Name())
 		if i.IsDir() {
-			dir, _ := r.fs.ReadDir(i.Name())
-			r.readFiles(dir, i.Name())
+			dir, _ := r.fs.ReadDir(path)
+
+			r.readFiles(dir, path)
 			continue
 		}
-
-		path := filepath.Join(dirname, i.Name())
 
 		out, err := r.fs.Open(path)
 		if err != nil {
